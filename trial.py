@@ -15,6 +15,7 @@ len_snake = 3
 head_img = pygame.image.load("head.png")
 body_img = pygame.image.load("point.png")
 dot_img = pygame.image.load("dot.png")
+font = pygame.font.Font('freesansbold.ttf', 10)
 head = (1,1)
 vel = ""
 snake = [head]
@@ -100,6 +101,10 @@ while crush:
     if check>1:
         reset()
     check =0
+    text = font.render("score = "+str(len_snake-3),True,(0,0,0),(255,255,255))
+    textrec = text.get_rect()
+    textrec.center = (570,10)
+    gd.blit(text,textrec)
     pygame.display.update()
     clk.tick(10)
 pygame.quit()
