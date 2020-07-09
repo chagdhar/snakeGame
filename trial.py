@@ -15,7 +15,7 @@ dot_img = pygame.image.load("dot.png")
 font = pygame.font.Font('freesansbold.ttf', 10)
 len_snake = 0
 def grid(a):
-	return(tuple(t*6 for t in a))
+	return tuple(t*6 for t in a)
 def reset():
 	global dot, dot_loc,head,vel,snake,check,len_snake
 	dot = False
