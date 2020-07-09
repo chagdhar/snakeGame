@@ -11,20 +11,22 @@ lis =[(x,y) for x in range(100) for y in range(100)]
 crush = True
 dot = False
 dot_loc = ()
-len_snake = 3
+len_snake = 15
 head_img = pygame.image.load("head.png")
 body_img = pygame.image.load("point.png")
 dot_img = pygame.image.load("dot.png")
 head = (1,1)
 vel = ""
 snake = [head]
+check = 0
 def grid(a,b):
     return((a*6,b*6))
 def reset():
     global dot, dot_loc,head,vel,snake
     dot = False
     dot_loc = ()
-    len_snake = 3
+    len_snake = 15
+    vel = ""
     head=(1,1)
     snake = [head]
 while crush:
@@ -92,9 +94,12 @@ while crush:
             gd.blit(head_img,grid(x,y))
         else:
             gd.blit(body_img,grid(x,y))
-    for a in snake[:len_snake-4]:
+    for a in snake:
         if a == head:
-            crush = False
+            check+=1
+    if check>1:
+        reset()
+    check =0
     pygame.display.update()
     clk.tick(10)
 pygame.quit()
