@@ -1,7 +1,7 @@
-import pygame
-import time
 import random as rn
+import time
 import numpy as np
+import pygame
 pygame.init()
 gd = pygame.display.set_mode((600,600))
 gd.fill([255,255,255])
@@ -9,27 +9,23 @@ pygame.display.set_caption("Snake")
 clk = pygame.time.Clock()
 lis =[(x,y) for x in range(100) for y in range(100)]
 crush = True
-dot = False
-dot_loc = ()
-len_snake = 3
 head_img = pygame.image.load("head.png")
 body_img = pygame.image.load("point.png")
 dot_img = pygame.image.load("dot.png")
 font = pygame.font.Font('freesansbold.ttf', 10)
-head = (1,1)
-vel = ""
-snake = [head]
-check = 0
+len_snake = 0
 def grid(a):
     return(tuple(t*6 for t in a))
 def reset():
-    global dot, dot_loc,head,vel,snake
+    global dot, dot_loc,head,vel,snake,check,len_snake
     dot = False
     dot_loc = ()
     len_snake = 3
     vel = ""
     head=(1,1)
     snake = [head]
+    check = 0
+reset()
 while crush:
     gd.fill([255,255,255])
     for event in pygame.event.get():
