@@ -11,7 +11,7 @@ lis =[(x,y) for x in range(100) for y in range(100)]
 crush = True
 dot = False
 dot_loc = ()
-len_snake = 15
+len_snake = 3
 head_img = pygame.image.load("head.png")
 body_img = pygame.image.load("point.png")
 dot_img = pygame.image.load("dot.png")
@@ -25,7 +25,7 @@ def reset():
     global dot, dot_loc,head,vel,snake
     dot = False
     dot_loc = ()
-    len_snake = 15
+    len_snake = 3
     vel = ""
     head=(1,1)
     snake = [head]
