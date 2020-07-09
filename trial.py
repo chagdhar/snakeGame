@@ -20,8 +20,8 @@ head = (1,1)
 vel = ""
 snake = [head]
 check = 0
-def grid(a,b):
-    return((a*6,b*6))
+def grid(a):
+    return(tuple(t*6 for t in a))
 def reset():
     global dot, dot_loc,head,vel,snake
     dot = False
@@ -84,17 +84,15 @@ while crush:
         dot_loc = difflis[ndin]
         dot = True
     else:
-        x,y = dot_loc
-        gd.blit(dot_img,grid(x,y))
+        gd.blit(dot_img,grid(dot_loc))
         if head == dot_loc:
             len_snake+=1
             dot = False
     for a in snake:
-        x,y = a
         if head == a:
-            gd.blit(head_img,grid(x,y))
+            gd.blit(head_img,grid(a))
         else:
-            gd.blit(body_img,grid(x,y))
+            gd.blit(body_img,grid(a))
     for a in snake:
         if a == head:
             check+=1
