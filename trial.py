@@ -20,7 +20,13 @@ vel = ""
 snake = [head]
 def grid(a,b):
     return((a*6,b*6))
-
+def reset():
+    global dot, dot_loc,head,vel,snake
+    dot = False
+    dot_loc = ()
+    len_snake = 3
+    head=(1,1)
+    snake = [head]
 while crush:
     gd.fill([255,255,255])
     for event in pygame.event.get():
@@ -70,7 +76,7 @@ while crush:
     if len(snake)>len_snake:
         snake = snake[1:]
     if not dot:
-        difflis = [i for i in lis + snake if i not in lis or i not in snake]
+        difflis = [i for i in lis if i not in snake]
         ndin = rn.randint(0,len(difflis))
         dot_loc = difflis[ndin]
         dot = True
@@ -86,6 +92,9 @@ while crush:
             gd.blit(head_img,grid(x,y))
         else:
             gd.blit(body_img,grid(x,y))
+    for a in snake[:len_snake-4]:
+        if a == head:
+            crush = False
     pygame.display.update()
     clk.tick(10)
 pygame.quit()
