@@ -98,7 +98,7 @@ while crush:
 			check+=1
 	if check>1:
 		reset()
-		clk.tick(1500)
+		clk.tick(15000)
 	check =0
 	text = font.render("score = "+str(len_snake-3),True,(0,0,0),(255,255,255))
 	textrec = text.get_rect()
