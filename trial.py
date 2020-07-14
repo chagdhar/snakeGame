@@ -1,5 +1,6 @@
 import random as rn
 import pygame
+import time
 pygame.init()
 gd = pygame.display.set_mode((600,600))
 gd.fill([255,255,255])
@@ -8,7 +9,7 @@ clk = pygame.time.Clock()
 lis =[(x,y) for x in range(100) for y in range(100)]
 crush = True
 head_img = pygame.image.load("head.png")
-body_img = pygame.image.load("point.png")
+body_img = pygame.image.load("body.png")
 dot_img = pygame.image.load("dot.png")
 font = pygame.font.Font('freesansbold.ttf', 10)
 len_snake = 0
@@ -96,7 +97,7 @@ while crush:
 			check+=1
 	if check>1:
 		reset()
-		clk.tick(15000)
+		time.sleep(5)
 	check =0
 	text = font.render("score = "+str(len_snake-3),True,(0,0,0),(255,255,255))
 	textrec = text.get_rect()
