@@ -26,41 +26,48 @@ def reset():
 	snake = [head]
 	check = 0
 reset()
+def get_key(event):
+	key = event.key
+	return key
 while crush:
+	typ = False
 	gd.fill([255,255,255])
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			crush = False
-		if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
-			if vel == "":
-				if event.key == pygame.K_LEFT:
-					vel = "Left"
-				if event.key == pygame.K_RIGHT:
-					vel = "Right"
-				if event.key == pygame.K_UP:
-					vel = "Up"
-				if event.key == pygame.K_DOWN:
-					vel = "Down"
-			if vel =="Up":
-				if event.key == pygame.K_LEFT:
-					vel = "Left"
-				if event.key == pygame.K_RIGHT:
-					vel = "Right"
-			if vel == "Down":
-				if event.key == pygame.K_LEFT:
-					vel = "Left"
-				if event.key == pygame.K_RIGHT:
-					vel = "Right"
-			if vel == "Right":
-				if event.key == pygame.K_DOWN:
-					vel = "Down"
-				if event.key == pygame.K_UP:
-					vel = "Up"
-			if vel == "Left":
-				if event.key == pygame.K_UP:
-					vel = "Up"
-				if event.key == pygame.K_DOWN:
-					vel = "Down"
+		if event.type == pygame.KEYDOWN:
+			typ = True
+			event_key = get_key(event)
+	if typ:
+		if vel == "":
+			if event_key == pygame.K_LEFT:
+				vel = "Left"
+			if event_key == pygame.K_RIGHT:
+				vel = "Right"
+			if event_key == pygame.K_UP:
+				vel = "Up"
+			if event_key == pygame.K_DOWN:
+				vel = "Down"
+		if vel =="Up":
+			if event_key == pygame.K_LEFT:
+				vel = "Left"
+			if event_key == pygame.K_RIGHT:
+				vel = "Right"
+		if vel == "Down":
+			if event_key == pygame.K_LEFT:
+				vel = "Left"
+			if event_key == pygame.K_RIGHT:
+				vel = "Right"
+		if vel == "Right":
+			if event_key == pygame.K_DOWN:
+				vel = "Down"
+			if event_key == pygame.K_UP:
+				vel = "Up"
+		if vel == "Left":
+			if event_key == pygame.K_UP:
+				vel = "Up"
+			if event_key == pygame.K_DOWN:
+				vel = "Down"
 	a,b = head
 	if vel == "Down":
 		b+=1
