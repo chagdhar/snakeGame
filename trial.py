@@ -65,16 +65,16 @@ while crush:
 				vel = "Up"
 			if event_key == pygame.K_DOWN:
 				vel = "Down"
-	a,b = head
+	head_x,head_y = head
 	if vel == "Down":
-		b+=1
+		head_y+=1
 	if vel == "Up":
-		b-=1
+		head_y -=1
 	if vel == "Right":
-		a+=1
+		head_x+=1
 	if vel == "Left":
-		a-=1
-	head = (a%100,b%100)
+		head_x-=1
+	head = (head_x%100,head_y%100)
 	snake.append(head)
 	if len(snake)>len_snake:
 		snake = snake[1:]
