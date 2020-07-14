@@ -26,9 +26,6 @@ def reset():
 	snake = [head]
 	check = 0
 reset()
-def get_key(event):
-	key = event.key
-	return key
 while crush:
 	typ = False
 	gd.fill([255,255,255])
@@ -37,7 +34,7 @@ while crush:
 			crush = False
 		if event.type == pygame.KEYDOWN:
 			typ = True
-			event_key = get_key(event)
+			event_key = event.key
 	if typ:
 		if vel == "":
 			if event_key == pygame.K_LEFT:
