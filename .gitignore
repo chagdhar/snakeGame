@@ -1,4 +1,4 @@
 
 check.py
-*.json
 .gitignore
+*.json
