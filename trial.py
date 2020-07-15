@@ -24,7 +24,6 @@ while crush:
 		vel = ""
 		head=(1,1)
 		snake = [head]
-		time.sleep(5)
 	check =0
 	typ = False
 	gd.fill([255,255,255])
