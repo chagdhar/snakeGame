@@ -13,19 +13,19 @@ body_img = pygame.image.load("body.png")
 dot_img = pygame.image.load("dot.png")
 font = pygame.font.Font('freesansbold.ttf', 10)
 len_snake = 0
+check = 2
 def grid(a):
 	return tuple(t*6 for t in a)
-def reset():
-	global dot, dot_loc,head,vel,snake,check,len_snake
-	dot = False
-	dot_loc = ()
-	len_snake = 3
-	vel = ""
-	head=(1,1)
-	snake = [head]
-	check = 0
-reset()
 while crush:
+	if check>1:
+		dot = False
+		dot_loc = ()
+		len_snake = 3
+		vel = ""
+		head=(1,1)
+		snake = [head]
+		time.sleep(5)
+	check =0
 	typ = False
 	gd.fill([255,255,255])
 	for event in pygame.event.get():
@@ -95,10 +95,6 @@ while crush:
 	for a in snake:
 		if a == head:
 			check+=1
-	if check>1:
-		reset()
-		time.sleep(5)
-	check =0
 	text = font.render("score = "+str(len_snake-3),True,(0,0,0),(255,255,255))
 	textrec = text.get_rect()
 	textrec.center = (570,10)
