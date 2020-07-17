@@ -1,6 +1,8 @@
 import random as rn
-import pygame
 import time
+
+import pygame
+
 pygame.init()
 gd = pygame.display.set_mode((600,600))
 gd.fill([255,255,255])
