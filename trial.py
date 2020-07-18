@@ -14,7 +14,6 @@ head_img = pygame.image.load("head.png")
 body_img = pygame.image.load("body.png")
 dot_img = pygame.image.load("dot.png")
 font = pygame.font.Font('freesansbold.ttf', 10)
-len_snake = 0
 check = 2
 def grid(a):
 	return tuple(t*6 for t in a)
