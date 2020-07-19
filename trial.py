@@ -75,7 +75,7 @@ while crush:
 		head_x-=1
 	head = (head_x%100,head_y%100)
 	snake.append(head)
-	if len(snake)>len_snake:
+	while len(snake)>len_snake:
 		snake = snake[1:]
 	if not dot:
 		difflis = [i for i in lis if i not in snake]
