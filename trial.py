@@ -15,6 +15,8 @@ body_img = pygame.image.load("body.png")
 dot_img = pygame.image.load("dot.png")
 font = pygame.font.Font('freesansbold.ttf', 10)
 check = 2
+x_speed = 0
+y_speed = 0
 def grid(a):
 	return tuple(t*6 for t in a)
 while crush:
@@ -22,7 +24,8 @@ while crush:
 		dot = False
 		dot_loc = ()
 		len_snake = 3
-		vel = ""
+		x_speed = 0
+		y_speed = 0
 		head=(1,1)
 		snake = [head]
 	check =0
@@ -35,44 +38,50 @@ while crush:
 			typ = True
 			event_key = event.key
 	if typ:
-		if vel == "":
+		if x_speed+y_speed==0:
 			if event_key == pygame.K_LEFT:
-				vel = "Left"
+				x_speed = -1
+				y_speed = 0
 			if event_key == pygame.K_RIGHT:
-				vel = "Right"
+				x_speed = 1
+				y_speed = 0
 			if event_key == pygame.K_UP:
-				vel = "Up"
+				y_speed = -1
+				x_speed = 0
 			if event_key == pygame.K_DOWN:
-				vel = "Down"
-		if vel =="Up":
+				y_speed = 1
+				x_speed = 0
+		if y_speed == -1:
 			if event_key == pygame.K_LEFT:
-				vel = "Left"
+				x_speed = -1
+				y_speed = 0
 			if event_key == pygame.K_RIGHT:
-				vel = "Right"
-		if vel == "Down":
+				x_speed = 1
+				y_speed = 0
+		if y_speed == 1:
 			if event_key == pygame.K_LEFT:
-				vel = "Left"
+				x_speed = -1
+				y_speed = 0 
 			if event_key == pygame.K_RIGHT:
-				vel = "Right"
-		if vel == "Right":
+				x_speed = 1
+				y_speed = 0
+		if x_speed ==1:
 			if event_key == pygame.K_DOWN:
-				vel = "Down"
+				x_speed = 0
+				y_speed = 1
 			if event_key == pygame.K_UP:
-				vel = "Up"
-		if vel == "Left":
+				x_speed = 0
+				y_speed = -1
+		if x_speed == -1:
 			if event_key == pygame.K_UP:
-				vel = "Up"
+				x_speed = 0
+				y_speed = -1
 			if event_key == pygame.K_DOWN:
-				vel = "Down"
+				x_speed = 0
+				y_speed = 1
 	head_x,head_y = head
-	if vel == "Down":
-		head_y+=1
-	if vel == "Up":
-		head_y -=1
-	if vel == "Right":
-		head_x+=1
-	if vel == "Left":
-		head_x-=1
+	head_x += x_speed
+	head_y += y_speed
 	head = (head_x%100,head_y%100)
 	snake.append(head)
 	while len(snake)>len_snake:
