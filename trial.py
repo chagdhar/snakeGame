@@ -38,47 +38,19 @@ while crush:
 			typ = True
 			event_key = event.key
 	if typ:
-		if x_speed+y_speed==0:
-			if event_key == pygame.K_LEFT:
+		if event.type == pygame.KEYDOWN:
+			if event.key == pygame.K_LEFT and x_speed == 0:
 				x_speed = -1
 				y_speed = 0
-			if event_key == pygame.K_RIGHT:
+			elif event.key == pygame.K_RIGHT and x_speed == 0:
 				x_speed = 1
 				y_speed = 0
-			if event_key == pygame.K_UP:
+			elif event.key == pygame.K_UP and y_speed == 0:
 				y_speed = -1
 				x_speed = 0
-			if event_key == pygame.K_DOWN:
+			elif event.key == pygame.K_DOWN and y_speed == 0:
 				y_speed = 1
 				x_speed = 0
-		if y_speed == -1:
-			if event_key == pygame.K_LEFT:
-				x_speed = -1
-				y_speed = 0
-			if event_key == pygame.K_RIGHT:
-				x_speed = 1
-				y_speed = 0
-		if y_speed == 1:
-			if event_key == pygame.K_LEFT:
-				x_speed = -1
-				y_speed = 0 
-			if event_key == pygame.K_RIGHT:
-				x_speed = 1
-				y_speed = 0
-		if x_speed ==1:
-			if event_key == pygame.K_DOWN:
-				x_speed = 0
-				y_speed = 1
-			if event_key == pygame.K_UP:
-				x_speed = 0
-				y_speed = -1
-		if x_speed == -1:
-			if event_key == pygame.K_UP:
-				x_speed = 0
-				y_speed = -1
-			if event_key == pygame.K_DOWN:
-				x_speed = 0
-				y_speed = 1
 	head_x,head_y = head
 	head_x += x_speed
 	head_y += y_speed
