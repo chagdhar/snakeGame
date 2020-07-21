@@ -96,14 +96,12 @@ while crush:
 		if head == dot_loc:
 			len_snake+=1
 			dot = False
-	for a in snake:
-		if head == a:
-			gd.blit(head_img,grid(a))
-		else:
-			gd.blit(body_img,grid(a))
-	for a in snake:
-		if a == head:
+	for segment in snake:
+		if head == segment:
+			gd.blit(head_img,grid(segment))
 			check+=1
+		else:
+			gd.blit(body_img,grid(segment))
 	text = font.render("score = "+str(len_snake-3),True,(0,0,0),(255,255,255))
 	textrec = text.get_rect()
 	textrec.center = (570,10)
