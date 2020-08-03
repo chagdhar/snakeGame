@@ -15,8 +15,6 @@ body_img = pygame.image.load("body.png")
 dot_img = pygame.image.load("dot.png")
 font = pygame.font.Font('freesansbold.ttf', 10)
 segments_at_head_loc = 2
-x_speed = 0
-y_speed = 0
 def grid(a):
     return tuple(t*6 for t in a)
 while crush:
