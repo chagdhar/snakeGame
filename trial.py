@@ -1,5 +1,4 @@
-import random as rn
-import time
+import random
 
 import pygame
 
@@ -57,7 +56,7 @@ while crush:
         snake = snake[1:]
     if not dot:
         difflis = [i for i in lis if i not in snake]
-        ndin = rn.randint(0,len(difflis))
+        ndin = random.randint(0,len(difflis))
         dot_loc = difflis[ndin]
         dot = True
     else:
